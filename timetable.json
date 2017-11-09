@@ -1,0 +1,150 @@
+{
+    "calendar": [
+        { "semester": 1, "begin": { "d": 4, "m": 9, "y": 2017 }, "end": { "d": 24, "m": 12, "y": 2017 } },
+        { "session": 1, "begin": { "d": 2, "m": 1, "y": 2018 }, "end": { "d": 28, "m": 1, "y": 2018 } },
+        { "semester": 2, "begin": { "d": 29, "m": 1, "y": 2018 }, "end": { "d": 23, "m": 3, "y": 2018 } },
+        { "semester": 2, "begin": { "d": 3, "m": 4, "y": 2018 }, "end": { "d": 27, "m": 5, "y": 2018 } },
+        { "session": 2, "begin": { "d": 28, "m": 5, "y": 2018 }, "end": { "d": 22, "m": 6, "y": 2018 } }
+    ],
+    "holidays": [
+        { "d": 14, "m": 10 },
+        { "d": 18, "m": 11 },
+        { "d": 31, "m": 12 },
+        { "d": 1, "m": 1 }
+    ],
+    "sockets": {
+        "1": {
+            "weekdays": { "on": { "h": 8, "m": 0 }, "off": { "h": 20, "m": 0 } },
+            "sundays": {},
+            "holidays": {}
+        }
+    },
+    "week": {
+        "1": "dienas-long",
+        "2": "dienas-short",
+        "3": "dienas-short",
+        "4": "dienas-short",
+        "5": "dienas-short",
+        "6": "empty",
+        "7": "empty"
+    },
+    "singles": [
+        { "date": { "y": 2017, "m": 9, "d": 16 }, "lectures": "neklatienes" },
+        { "date": { "y": 2017, "m": 9, "d": 23 }, "lectures": "neklatienes" },
+        { "date": { "y": 2017, "m": 9, "d": 30 }, "lectures": "neklatienes" },
+        { "date": { "y": 2017, "m": 10, "d": 7 }, "lectures": "neklatienes" },
+        { "date": { "y": 2017, "m": 10, "d": 14 }, "lectures": "neklatienes" },
+        { "date": { "y": 2017, "m": 10, "d": 21 }, "lectures": "neklatienes" },
+        { "date": { "y": 2017, "m": 10, "d": 28 }, "lectures": "neklatienes" },
+        { "date": { "y": 2017, "m": 11, "d": 4 }, "lectures": "neklatienes" },
+        { "date": { "y": 2017, "m": 11, "d": 11 }, "lectures": "neklatienes" },
+        { "date": { "y": 2017, "m": 11, "d": 25 }, "lectures": "neklatienes" },
+        { "date": { "y": 2017, "m": 12, "d": 2 }, "lectures": "neklatienes" },
+        { "date": { "y": 2017, "m": 12, "d": 9 }, "lectures": "neklatienes" },
+        { "date": { "y": 2017, "m": 12, "d": 16 }, "lectures": "neklatienes" }
+    ],
+    "defaults": {
+        "empty": {
+            "lectures-count": 0
+        },
+        "dienas-short": {
+            "lectures-count": 4,
+            "1": {
+                "begin": { "h": 8, "m": 30 },
+                "begin-break": { "h": 9, "m": 15 },
+                "end-break": { "h": 9, "m": 20 },
+                "end": { "h": 10, "m": 5 }
+            },
+            "2": {
+                "begin": { "h": 10, "m": 15 },
+                "begin-break": { "h": 11, "m": 0 },
+                "end-break": { "h": 11, "m": 5 },
+                "end": { "h": 11, "m": 50 }
+            },
+            "3": {
+                "begin": { "h": 12, "m": 30 },
+                "begin-break": { "h": 13, "m": 15 },
+                "end-break": { "h": 13, "m": 20 },
+                "end": { "h": 14, "m": 5 }
+            },
+            "4": {
+                "begin": { "h": 14, "m": 15 },
+                "begin-break": { "h": 15, "m": 0 },
+                "end-break": { "h": 15, "m": 5 },
+                "end": { "h": 15, "m": 50 }
+            }
+        },
+        "dienas-long": {
+            "lectures-count": 6,
+            "1": {
+                "begin": { "h": 8, "m": 30 },
+                "begin-break": { "h": 9, "m": 15 },
+                "end-break": { "h": 9, "m": 20 },
+                "end": { "h": 10, "m": 5 }
+            },
+            "2": {
+                "begin": { "h": 10, "m": 15 },
+                "begin-break": { "h": 11, "m": 0 },
+                "end-break": { "h": 11, "m": 5 },
+                "end": { "h": 11, "m": 50 }
+            },
+            "3": {
+                "begin": { "h": 12, "m": 30 },
+                "begin-break": { "h": 13, "m": 15 },
+                "end-break": { "h": 13, "m": 20 },
+                "end": { "h": 14, "m": 5 }
+            },
+            "4": {
+                "begin": { "h": 14, "m": 15 },
+                "begin-break": { "h": 15, "m": 0 },
+                "end-break": { "h": 15, "m": 5 },
+                "end": { "h": 15, "m": 50 }
+            },
+            "5": {
+                "begin": { "h": 16, "m": 0 },
+                "begin-break": { "h": 16, "m": 45 },
+                "end-break": { "h": 16, "m": 50 },
+                "end": { "h": 17, "m": 35 }
+            },
+            "6": {
+                "begin": { "h": 17, "m": 45 },
+                "begin-break": { "h": 18, "m": 30 },
+                "end-break": { "h": 18, "m": 35 },
+                "end": { "h": 19, "m": 20 }
+            }
+        },
+        "neklatienes": {
+            "lectures-count": 5,
+            "1": {
+                "begin": { "h": 9, "m": 0 },
+                "begin-break": { "h": 9, "m": 40 },
+                "end-break": { "h": 9, "m": 45 },
+                "end": { "h": 10, "m": 25 }
+            },
+            "2": {
+                "begin": { "h": 10, "m": 35 },
+                "begin-break": { "h": 11, "m": 15 },
+                "end-break": { "h": 11, "m": 20 },
+                "end": { "h": 12, "m": 0 }
+            },
+            "3": {
+                "begin": { "h": 12, "m": 30 },
+                "begin-break": { "h": 13, "m": 10 },
+                "end-break": { "h": 13, "m": 15 },
+                "end": { "h": 13, "m": 55 }
+            },
+            "4": {
+                "begin": { "h": 14, "m": 5 },
+                "begin-break": { "h": 14, "m": 45 },
+                "end-break": { "h": 14, "m": 50 },
+                "end": { "h": 15, "m": 30 }
+            },
+            "5": {
+                "begin": { "h": 15, "m": 40 },
+                "begin-break": { "h": 16, "m": 20 },
+                "end-break": { "h": 16, "m": 25 },
+                "end": { "h": 17, "m": 5 }
+            }
+        }
+    }
+}
