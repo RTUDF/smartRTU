@@ -10,4 +10,4 @@ public:
     ~AdsText();
     bool update();
     void render();
-};
+}; 

@@ -28,6 +28,11 @@
  {
  private:
      Ads * ads[MAX_ADS];
+     int adsCount;
+     Ads * curAds;
+     LongTime curAdsStart;
+     bool AddAds(const char * FileName);
+
  public:
      WgMulAds(int AposX, int AposY, wgMode Amode);
      ~WgMulAds();

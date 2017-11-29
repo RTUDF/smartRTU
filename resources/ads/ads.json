@@ -1,4 +1,5 @@
 {
+    "type": "text | slide | htext",
     "caption": "text",
     "rotation": 15,
     "publication": { 
@@ -7,7 +8,6 @@
     },
     "content": {
         "source" : "file.name",
-        "type": "text | slide | htext",
         "dispaly": "fit | scroll"
     },
     "background": {
