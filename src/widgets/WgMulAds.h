@@ -17,27 +17,32 @@
  #include "../Timer.h"
  #include "../CPicturesStorage.h"
  #include "../CFontStorage.h"
+ #include "AdsText.h"
  #include "Ads.h"
  
  using namespace std;
  using json = nlohmann::json;
  
- #define ADS_FILES_PATH "./resources/ads/" 
- #define MAX_ADS 100
+ #define MAX_ADS 10
+ 
+ struct AdsInfo { 
+    char instance[100]; // parameters file name (database parameter instance) 
+    time_t modify; // parameters modification timestamp 
+    Ads * controller; 
+    AdsInfo() { instance[0] = 0; modify = 0; controller = NULL; } 
+    ~AdsInfo() { if (controller) delete controller; } 
+};
  
  class WgMulAds : public WgBackground
  {
  private:
-     Ads * ads[MAX_ADS];
-     int adsCount;
-     Ads * curAds;
-     LongTime curAdsStart;
-     bool AddAds(const char * FileName);
-
+	AdsInfo ads[MAX_ADS];
+    int curAds;     // curAds = &ads[++idAd]; curAds->controller->render()
+	LongTimeMs curAdsStart;
  public:
-     WgMulAds(int AposX, int AposY, wgMode Amode);
-     ~WgMulAds();
-     bool update();
-     void render();
+    WgMulAds(int AposX, int AposY, wgMode Amode);
+    ~WgMulAds();
+    bool update();
+    void render();
  };
  

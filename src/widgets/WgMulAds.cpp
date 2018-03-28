@@ -2,40 +2,19 @@
 
 WgMulAds::WgMulAds(int Ax, int Ay, wgMode Amode):	WgBackground(Ax, Ay, Amode) 
 {
-	for (int i = 0; i < MAX_ADS; i++) ads[i] = NULL;
-	adsCount = 0;
-	curAds = NULL:
-
-	// For each file in folder ADS_FILES_PATH create ads
-
-	curAds = NULL: // if adsCount != 0 ...
-
-	// // заполнение массива объявлений
-	// for (int i = 0; i <= /*кол-во объявлений*/; i++)
-	// {
-	// 	ads[i] = new AdsText(i, fileName); // или ads? или как?
-	// }
-	// adsCount = i;
+	this->updateTime = 2000;
+	
+	ads[0].controller = new AdsText(rectClient.left, rectClient.right, rectClient.top,
+									rectClient.bottom, rectClient.width, rectClient.height);
+	ads[1].controller = new AdsText(rectClient.left, rectClient.right, rectClient.top,
+									rectClient.bottom, rectClient.width, rectClient.height);
+	curAds = 0;
+	printf( "%s\tWgMulAds widget objects is created\n", strNow() );
 }
 
 WgMulAds::~WgMulAds()
 {
-	for (int i = 0; i < adsCount; i++)
-	{
-		delete ads[i];
-	}
-}
-
-bool WgMulAds::AddAds(const char * FileName)
-{
-	// create JSON and load it from the file
-
-	// read field type
-
-	// check type and create one of Ads
-
-	// add ads object to array if it's actual
-
+	
 }
 
 
@@ -47,20 +26,27 @@ void WgMulAds::render()
 	
 	//~~~ render header
 
-	if (curAds) {
-		renderHeader( curAds->getCaption() );		// renderHeader( ads[currentAds].getHeader() ) ?
+	if (curAds == 0)
+		renderHeader("Ads Nr. 1");
+	if (curAds == 1)
+		renderHeader("Ads Nr. 2");
 
-		curAds->render();
-	}
-	else {
-		//....?
-	}
+	ads[curAds].controller->render();
 }
 
 bool WgMulAds::update()
 {
 	//1. chech publication time and delete nonactual ads
 	//2. check show time and change curAds
-	return curAds->update(); //or ads is changed
+	if (curAds == 0)
+		curAds = 1;
+	else
+		curAds = 0;
+	
+	
+	this->render();
+
+	return false;//curAds->update(); //or ads is changed
+	/*moch update is false*/
 }
 
