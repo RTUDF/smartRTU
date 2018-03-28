@@ -33,9 +33,7 @@ OBJ = 	obj/CPicturesStorage.o \
 		obj/timetable.o \
 		obj/board.o \
 		obj/Engine.o \
-		obj/desktop.o \
-		obj/Ads.o \
-		obj/AdsText.o
+		obj/desktop.o 
 
 VGINCS = \
 		-I/opt/vc/include \
