@@ -1,31 +1,33 @@
 #include "Ads.h"
 
-bool Ads::Load(const char * jsonFile)
-{
-
-}
-
 Ads::Ads(int id, const char *jsonFile)
 {
-    this.File = jsonFile;
-    Load(File);
-    this.id = id;
+    this->rect.left = left;
+	this->rect.right = right;
+	this->rect.top = top;
+	this->rect.bottom = bottom;
+	this->rect.width = width;
+	this->rect.height = height;
+
+	printf( "%s\tAds interface is created\n", strNow() );
 }
 
 Ads::~Ads()
 {}
 
-bool Ads::update()
-{
-    return checkFileData();
+void Ads::setTextColor(wgColor c){
+	FontStorage->getFont((char*)"arialBold")->SetColour(
+		Colors[c].r,
+		Colors[c].g,
+		Colors[c].b
+	);
 }
 
-int Ads::getId()
+void Ads::render()
 {
-    return id;
+   cout << "Ads Render\n";
 }
 
-bool checkFileData()
-{
-    return false; // true - file changed;
-}
+//int Ads::getId() { return id; }
+
+//bool checkFileData() { return false; } // true - file changed; 
