@@ -20,6 +20,7 @@
  #include "Ads.h"
  
  using namespace std;
+ using json = nlohmann::json;
  
  #define ADS_FILES_PATH "./resources/ads/" 
  #define MAX_ADS 100
