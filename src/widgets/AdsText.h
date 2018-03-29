@@ -11,6 +11,8 @@
 #include <fstream> /// for json
 #include <cstring> /// for json
 
+
+//#include "WgBackground.h"
 #include "../Engine.h"
 #include "../desktop.h"
 #include "../Timer.h"
@@ -53,7 +55,7 @@ protected:
     /** end - WgAds */
 
 public:
-    AdsText(int left, int right, int top, int bottom, int width, int height);
+    AdsText(string jsonFile, int left, int right, int top, int bottom, int width, int height);
     ~AdsText();
     std::string getCaption();
     bool update();

@@ -49,6 +49,12 @@ const struct { unsigned int r, g, b; } Colors[] = {
 
 class Ads
 {
+private:
+   // json sch;
+    
+//     int id; // do no need
+//     char File[100]; // do not need
+
 protected:
     //int left, bottom, width, height; 
     char * caption; 
@@ -58,16 +64,17 @@ protected:
     //AdsBackground * background;
     //virtual bool Load(const char * Parameters);
     // bool checkFileData(); // true - file changed;
-      rectClient rect;
-      void setTextColor(wgColor c);
+    string jsonFile;
+    rectClient rect;
+     void setTextColor(wgColor c);
 public: 
     //Ads(const json Parameters, int Left, int Bottom, int Width, int Height);
-    Ads(int left, int right, int top, int bottom, int width, int height);
+    Ads(string jsonFile, int left, int right, int top, int bottom, int width, int height);
     ~Ads();
     //virtual bool update() = 0;
     virtual void render();
     bool isActual() { return true;  /*mock*/ }
-    virtual std::string getCaption() { return "Par mums"; };
+    virtual std::string getCaption();
     int getRotation() { return 10;  /*mock*/ } 
     // events
     //virtual void onShow() {};

@@ -2,9 +2,12 @@
  * Visual widget.
  * 	Show some ads and notifications.
  */
-
+ 
  #pragma once
  
+ #include <fstream>
+ #include <cstring>
+ #include <stdio.h>
  #include <iostream>
  #include <string>
  #include <dirent.h>
@@ -20,29 +23,41 @@
  #include "AdsText.h"
  #include "Ads.h"
  
+ 
  using namespace std;
  using json = nlohmann::json;
- 
+
+ #define ADS_FILES_PATH "./resources/ads/" 
  #define MAX_ADS 10
  
- struct AdsInfo { 
-    char instance[100]; // parameters file name (database parameter instance) 
+struct AdsInfo { 
+    string instance; // parameters file name (database parameter instance) 
     time_t modify; // parameters modification timestamp 
     Ads * controller; 
     AdsInfo() { instance[0] = 0; modify = 0; controller = NULL; } 
     ~AdsInfo() { if (controller) delete controller; } 
 };
- 
+
  class WgMulAds : public WgBackground
- {
- private:
-	AdsInfo ads[MAX_ADS];
-    int curAds;     // curAds = &ads[++idAd]; curAds->controller->render()
-	LongTimeMs curAdsStart;
+ { 
  public:
-    WgMulAds(int AposX, int AposY, wgMode Amode);
-    ~WgMulAds();
-    bool update();
-    void render();
+     WgMulAds(int AposX, int AposY, wgMode Amode);
+     ~WgMulAds();
+     bool update();
+     void render();
+
+private:
+    int getFilesNames(const char* path, string files[100]);    // return files count.
+    bool checkJsonFile(string str);
+
+private:
+    AdsInfo ads[MAX_ADS];
+    int adsCount;
+    int curAds;     // curAds = &ads[++idAd]; curAds->controller->render()      // int -> Ads* //
+    //int curAds; // ads[curAds].controller->render()  curAds = curAds->next
+    // Ads * defAds;
+    LongTimeMs curAdsStart;
+    //bool AddAds(const char * Parameters);
+
+    //json sch;
  };
- 

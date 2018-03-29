@@ -1,9 +1,12 @@
 #include "AdsText.h"
 
+
+
+
 bool AdsText::Load(const char * jsonFile)
 { return 0;}
 
-AdsText::AdsText(int left, int right, int top, int bottom, int width, int height) : Ads(left, right, top, bottom, width, height)
+AdsText::AdsText(string jsonFile, int left, int right, int top, int bottom, int width, int height) : Ads(jsonFile, left, right, top, bottom, width, height)
 {
     //updateTime = 1000; // 1s
 	ads = NULL;
@@ -13,7 +16,7 @@ AdsText::AdsText(int left, int right, int top, int bottom, int width, int height
 
 	char texttext[100] = "";
 	strcat(texttext, ADS_FILES_PATH);
-	strcat(texttext, "textJsonOne.json");
+	strcat(texttext, jsonFile.c_str());
 	printf( "\t texttext = %s\n", texttext );
 	ifstream i(texttext);
 	i >> sch;
@@ -68,7 +71,15 @@ bool AdsText::update()
 }
 
 void AdsText::render()
-{	
+{
+/*
+    try{
+		renderHeader(captionString.c_str());
+	}
+	catch(...){
+		renderHeader("Par mums");
+	}*/
+	
 	//~~~ calculate line count without last empy strings
 
 	int lc = lineCount;
@@ -181,4 +192,4 @@ int AdsText::Separate( char * Src, char ** Dst )
 		}
 	}
 	return p;
-}
+}w
