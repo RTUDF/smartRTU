@@ -7,7 +7,7 @@
         "finish": { "d":0, "m": 0, "y": 0 }
     },
     "content": {
-        "source" : "test.txt",
+        "source" : "text3.txt",
         "dispaly": "fit"
     },
     "background": {
