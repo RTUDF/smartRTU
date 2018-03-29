@@ -1,6 +1,6 @@
 #include "Ads.h"
 
-Ads::Ads(int id, const char *jsonFile)
+Ads::Ads(int left, int right, int top, int bottom, int width, int height)
 {
     this->rect.left = left;
 	this->rect.right = right;
