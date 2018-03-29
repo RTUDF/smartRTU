@@ -192,4 +192,4 @@ int AdsText::Separate( char * Src, char ** Dst )
 		}
 	}
 	return p;
-}w
+}
