@@ -11,6 +11,7 @@
  #include <iostream>
  #include <string>
  #include <dirent.h>
+ #include <math.h>
  #include <sys/stat.h>
  #include <sys/types.h>
  
@@ -49,8 +50,10 @@ struct AdsInfo {
 private:
     int getFilesNames(const char* path, string files[100]);    // return files count.
     bool checkJsonFile(string str);
+    void pageIndicator(int width, int height, int active, int circleCount, int diameter);
 
-private:
+    int activeAds;
+    int circleSize = 30;
     AdsInfo ads[MAX_ADS];
     int adsCount;
     int curAds;     // curAds = &ads[++idAd]; curAds->controller->render()      // int -> Ads* //

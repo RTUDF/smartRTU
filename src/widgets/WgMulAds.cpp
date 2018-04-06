@@ -161,6 +161,9 @@ void WgMulAds::render()
 	{
 		renderHeader(ads[curAds].controller->getCaption().c_str());
 		ads[curAds].controller->render();
+		if(curAds==0) activeAds = adsCount;
+		else activeAds = curAds;
+		pageIndicator(rectClient.width, rectClient.height, activeAds, adsCount, circleSize);
 	}
 }
 
@@ -178,3 +181,33 @@ bool WgMulAds::update()
 	/*moch update is false*/
 }
 
+void WgMulAds::pageIndicator(int width, int height, int active, int circleCount, int diameter){
+	
+	int cirleBorder = diameter/8;
+
+	int verticalSideOffset = (int)(round((float)diameter / 4)),
+		horizontalSideOffset = (int)(round((float)diameter / 3)),
+		circleGap = (int)(round((float)diameter / 4)) + cirleBorder,
+		rectHeight = verticalSideOffset * 2 + diameter,
+		rectWidth = horizontalSideOffset * 2 + diameter * circleCount + (circleCount - 1) * circleGap,
+		rectX = (width/2)-(rectWidth/2),
+		rectY = (height/2)-(rectHeight/2);
+
+	Fill(40, 40, 40, 1);
+
+	rectY = height / 4;
+	Roundrect(rectX, rectY, rectWidth, rectHeight, rectHeight, rectHeight);
+
+	for (int i = 0; i < circleCount; i++)
+	{
+		Fill(255, 255, 255, 1);
+		Circle(horizontalSideOffset + rectX + i*(circleGap+diameter) + diameter / 2, rectY + verticalSideOffset + diameter / 2, diameter + cirleBorder);
+		if (active == i+1){
+			Fill(255, 109, 55, 1);
+		}
+		else 
+			Fill(66, 66, 66, 1);
+		Circle(horizontalSideOffset + rectX + i*(circleGap+diameter) + diameter / 2, rectY + verticalSideOffset + diameter / 2, diameter);
+	}
+	End();
+}
