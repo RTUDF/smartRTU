@@ -60,7 +60,7 @@ protected:
     char * caption; 
     int rotation; 
     time_t startTime; 
-    //time_t finish; 
+    time_t finishTime; 
     //AdsBackground * background;
     //virtual bool Load(const char * Parameters);
     // bool checkFileData(); // true - file changed;

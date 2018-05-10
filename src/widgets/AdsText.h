@@ -32,7 +32,7 @@ using json = nlohmann::json;  /// for json
 
 class AdsText : public Ads {
 private:
-
+	
 protected:
     bool Load(const char * jsonFile);
 

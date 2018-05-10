@@ -1,7 +1,7 @@
 {
     "type": "text",
     "caption": "TEST JSON 2",
-    "rotation": 15,
+    "rotation": 1,
     "publication": { 
         "start": { "d":0, "m": 0, "y": 0 }, 
         "finish": { "d":0, "m": 0, "y": 0 }

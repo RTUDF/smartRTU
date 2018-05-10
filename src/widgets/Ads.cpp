@@ -22,7 +22,7 @@ Ads::Ads(string jsonFile, int left, int right, int top, int bottom, int width, i
 	this->rect.width = width;
 	this->rect.height = height;
 	
-	//startTime = 0;
+	startTime = time(NULL); // start time in timestamp
 	rotation = 1000;
 
 	printf( "%s\tAds interface is created\n", strNow() );

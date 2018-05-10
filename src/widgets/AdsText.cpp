@@ -7,9 +7,7 @@ bool AdsText::Load(const char * jsonFile)
 { return 0;}
 
 AdsText::AdsText(string jsonFile, int left, int right, int top, int bottom, int width, int height) : Ads(jsonFile, left, right, top, bottom, width, height)
-{
-	rotation = 3000; // updateTime 
-	
+{	
 	ads = NULL;
 	adsPeace = NULL;
 	lineCount = 0;
@@ -22,6 +20,8 @@ AdsText::AdsText(string jsonFile, int left, int right, int top, int bottom, int 
 	ifstream i(texttext);
 	i >> sch;
 	captionString = sch["caption"];
+	rotation = sch["rotation"]; 
+	rotation *= 1000; // updateTime in milliseconds
 
 	try{
 		//** JSON. caption 
