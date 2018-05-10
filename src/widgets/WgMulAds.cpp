@@ -23,8 +23,6 @@ WgMulAds::WgMulAds(int Ax, int Ay, wgMode Amode): WgBackground(Ax, Ay, Amode)
 	// ads[1].controller = new AdsText(rectClient.left, rectClient.right, rectClient.top,
 	// 								rectClient.bottom, rectClient.width, rectClient.height);
 
-	//updateTime = 3000;
-	
 
 	string files[100];
 	int filesCount = 0;
@@ -49,7 +47,7 @@ WgMulAds::WgMulAds(int Ax, int Ay, wgMode Amode): WgBackground(Ax, Ay, Amode)
 		{
 			ads[i].instance = files[i];
 			ads[i].controller = new AdsText(files[i], rectClient.left, rectClient.right, rectClient.top,
-									  rectClient.bottom-30, rectClient.width, rectClient.height);
+									  rectClient.bottom, rectClient.width, rectClient.height-30);
 			updateTimeArray[i] = ads[i].controller->getRotation();
 			i++;
 		}
@@ -160,7 +158,8 @@ void WgMulAds::render()
 	// 	renderHeader("Default");
 	// };
 
-	cout << "current Ads: " << ads[curAds].controller->getCaption().c_str() << endl;
+	cout << "current Ads: " << ads[curAds].controller->getCaption().c_str() << endl;  // message
+
 	if (ads[curAds].controller && ads[curAds].controller->isActual())
 	{
 		updateTime = updateTimeArray[curAds];
@@ -169,7 +168,7 @@ void WgMulAds::render()
 		ads[curAds].controller->render();
 		if(curAds==0) activeAds = adsCount;
 		else activeAds = curAds;
-		printf("\twidth: %i  left: %i  height: %i  bottom: %i\n", rectClient.width, rectClient.left, rectClient.height, rectClient.bottom);
+		printf("\twidth: %i  left: %i  height: %i  bottom: %i\n", rectClient.width, rectClient.left, rectClient.height, rectClient.bottom);  // message
 		pageIndicator(rectClient.width + (rectClient.left*2), rectClient.height + (rectClient.bottom*2), activeAds, adsCount, circleSize);
 	}
 }
@@ -194,6 +193,9 @@ void WgMulAds::pageIndicator(int width, int height, int active, int circleCount,
 	//Fill(0, 0, 0, .2);
 	//Rect(rx, ry, rw, rh);
 	/* test - end **/
+	int colorForFill[3];
+	int *colorsActive = getCaptionColor(colorForFill);
+
 
 	int cirleBorder = diameter/8;
 
@@ -205,20 +207,27 @@ void WgMulAds::pageIndicator(int width, int height, int active, int circleCount,
 		rectX = (width/2)-(rectWidth/2),
 		rectY = (height/2)-(rectHeight/2);
 
-	Fill(40, 40, 40, 1);
+	/** main pageIndicator background color */
+	//Fill(40, 40, 40, 1); // old color
+	Fill(166, 166, 166, 1);
 
-	rectY = height / 10;
+	rectY = height / 12;
 	Roundrect(rectX, rectY, rectWidth, rectHeight, rectHeight, rectHeight);
 
 	for (int i = 0; i < circleCount; i++)
 	{
+		/** pageIndicator border color */
 		Fill(255, 255, 255, 1);
 		Circle(horizontalSideOffset + rectX + i*(circleGap+diameter) + diameter / 2, rectY + verticalSideOffset + diameter / 2, diameter + cirleBorder);
 		if (active == i+1){
-			Fill(255, 109, 55, 1);
+			/** active indicator color */
+			//Fill(255, 109, 55, 1); 
+			Fill(colorsActive[0], colorsActive[1], colorsActive[2], 1);
 		}
 		else 
-			Fill(66, 66, 66, 1);
+			/** no active indicator color */
+			//Fill(66, 66, 66, 1); // old color
+			Fill(217, 217, 217, 1);
 		Circle(horizontalSideOffset + rectX + i*(circleGap+diameter) + diameter / 2, rectY + verticalSideOffset + diameter / 2, diameter);
 	}
 	End();

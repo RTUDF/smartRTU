@@ -62,6 +62,4 @@ private:
     // Ads * defAds;
     LongTimeMs curAdsStart;
     //bool AddAds(const char * Parameters);
-
-    
  };

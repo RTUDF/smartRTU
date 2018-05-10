@@ -15,7 +15,7 @@ enum wgMode { md1x1 = 1, md1x2, md1x3, md3x8, mdCustom };
 class WgBackground : public IWidget
 {
 private: 
-	
+
 protected:
 	int posX, posY;   // position in the grid  
 	wgMode mode;      // widget mode
@@ -38,4 +38,6 @@ public:
     void render();
 	bool update() { return false; };
 	bool isVisible() { return true; };
+
+	int* getCaptionColor(int arr[]);
 };

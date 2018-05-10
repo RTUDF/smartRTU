@@ -103,6 +103,12 @@ void WgBackground::setFillColor(wgColor c)
 */
 }
 
+int* WgBackground::getCaptionColor(int arr[]){
+	arr[0] = Colors[color].r;
+	arr[1] = Colors[color].g;
+	arr[2] = Colors[color].b;
+	return arr;
+}
 
 void WgBackground::render()
 {

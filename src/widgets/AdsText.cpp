@@ -140,7 +140,7 @@ bool AdsText::isActual() {
 
 	try{
 		//** JSON finish time 
-		printf("isActual - work\n");
+		printf("isActual - work\n");  // message
 		json &publication = sch["publication"];
 		json &finish = publication["finish"];
 
