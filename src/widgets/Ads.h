@@ -71,9 +71,9 @@ public:
     //Ads(const json Parameters, int Left, int Bottom, int Width, int Height);
     Ads(string jsonFile, int left, int right, int top, int bottom, int width, int height);
     ~Ads();
-    //virtual bool update() = 0;
+    virtual bool update() = 0;
     virtual void render();
-    bool isActual() { return true;  /*mock*/ };
+    virtual bool isActual() { return true;  /*mock*/ };
     virtual std::string getCaption();
     virtual int getRotation();
     // events

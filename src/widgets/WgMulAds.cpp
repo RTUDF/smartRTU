@@ -161,7 +161,7 @@ void WgMulAds::render()
 	// };
 
 	cout << "current Ads: " << ads[curAds].controller->getCaption().c_str() << endl;
-	if (ads[curAds].controller)
+	if (ads[curAds].controller && ads[curAds].controller->isActual())
 	{
 		updateTime = updateTimeArray[curAds];
 

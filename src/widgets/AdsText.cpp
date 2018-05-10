@@ -131,6 +131,38 @@ int AdsText::getRotation() {
 	return rotation; 
 }
 
+bool AdsText::isActual() {
+	// startTime ??
+	time_t timeNow = time(NULL);
+	int dFinish, mFinish, yFinish;
+	tm *ltm = localtime(&timeNow);
+	//printf("d: %i m: %i y: %i\n", ltm->tm_mday, ltm->tm_mon+1, ltm->tm_year+1900);
+
+	try{
+		//** JSON finish time 
+		printf("isActual - work\n");
+		json &publication = sch["publication"];
+		json &finish = publication["finish"];
+
+		dFinish = finish["d"];
+		mFinish = finish["m"];
+		yFinish = finish["y"];
+	
+		if (ltm->tm_year+1900 >= yFinish){
+			if (ltm->tm_mon+1 >= mFinish) {
+				if (ltm->tm_mday >= dFinish) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	catch(...){
+		printf(">>> err isActual\n");
+	}
+	return false;
+}
+
 /* --------------------------------------------------------- */
 /* --------------------------------------------------------- */
 /* --------------------------------------------------------- */

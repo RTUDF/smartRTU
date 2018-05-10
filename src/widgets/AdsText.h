@@ -60,5 +60,6 @@ public:
 	std::string getCaption();
 	int getRotation();
     bool update();
-    void render();
+	void render();
+	bool isActual();
 }; 

@@ -63,5 +63,5 @@ private:
     LongTimeMs curAdsStart;
     //bool AddAds(const char * Parameters);
 
-    //json sch;
+    
  };

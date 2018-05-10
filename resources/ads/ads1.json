@@ -3,8 +3,8 @@
     "caption": "TEST JSON 1",
     "rotation": 3,
     "publication": { 
-        "start": { "d":0, "m": 0, "y": 0 }, 
-        "finish": { "d":0, "m": 0, "y": 0 }
+        "start": { "d":9, "m": 5, "y": 2018 }, 
+        "finish": { "d":10, "m": 5, "y": 2018 }
     },
     "content": {
         "source" : "text1.txt",

@@ -4,7 +4,7 @@
     "rotation": 1,
     "publication": { 
         "start": { "d":0, "m": 0, "y": 0 }, 
-        "finish": { "d":0, "m": 0, "y": 0 }
+        "finish": { "d":12, "m": 5, "y": 2018 }
     },
     "content": {
         "source" : "text3.txt",
