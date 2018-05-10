@@ -1,3 +1,4 @@
+
 #include "WgAds.h"
 
 WgAds::WgAds(int Ax, int Ay, wgMode Amode):	WgBackground(Ax, Ay, Amode) 

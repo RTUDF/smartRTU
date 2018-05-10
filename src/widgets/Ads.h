@@ -73,9 +73,9 @@ public:
     ~Ads();
     //virtual bool update() = 0;
     virtual void render();
-    bool isActual() { return true;  /*mock*/ }
+    bool isActual() { return true;  /*mock*/ };
     virtual std::string getCaption();
-    int getRotation() { return 10;  /*mock*/ } 
+    virtual int getRotation();
     // events
     //virtual void onShow() {};
     //virtual void onHide() {};

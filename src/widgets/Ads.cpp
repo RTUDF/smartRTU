@@ -23,6 +23,7 @@ Ads::Ads(string jsonFile, int left, int right, int top, int bottom, int width, i
 	this->rect.height = height;
 	
 	//startTime = 0;
+	rotation = 1000;
 
 	printf( "%s\tAds interface is created\n", strNow() );
 }
@@ -73,3 +74,7 @@ void Ads::setTextColor(wgColor c){
 {
     return false; // true - file changed;
 }*/
+
+int Ads::getRotation() {
+	return rotation;  /*mock*/ 
+}

@@ -57,7 +57,8 @@ protected:
 public:
     AdsText(string jsonFile, int left, int right, int top, int bottom, int width, int height);
     ~AdsText();
-    std::string getCaption();
+	std::string getCaption();
+	int getRotation();
     bool update();
     void render();
 }; 

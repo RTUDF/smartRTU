@@ -8,7 +8,8 @@ bool AdsText::Load(const char * jsonFile)
 
 AdsText::AdsText(string jsonFile, int left, int right, int top, int bottom, int width, int height) : Ads(jsonFile, left, right, top, bottom, width, height)
 {
-    //updateTime = 1000; // 1s
+	rotation = 3000; // updateTime 
+	
 	ads = NULL;
 	adsPeace = NULL;
 	lineCount = 0;
@@ -124,6 +125,10 @@ void AdsText::render()
 			this->rect.top - ofsY - lh * (i + 1)
 		);
 	}
+}
+
+int AdsText::getRotation() {
+	return rotation; 
 }
 
 /* --------------------------------------------------------- */

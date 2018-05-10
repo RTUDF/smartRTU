@@ -23,7 +23,8 @@ WgMulAds::WgMulAds(int Ax, int Ay, wgMode Amode): WgBackground(Ax, Ay, Amode)
 	// ads[1].controller = new AdsText(rectClient.left, rectClient.right, rectClient.top,
 	// 								rectClient.bottom, rectClient.width, rectClient.height);
 
-	updateTime = 3000;
+	//updateTime = 3000;
+	
 
 	string files[100];
 	int filesCount = 0;
@@ -48,11 +49,14 @@ WgMulAds::WgMulAds(int Ax, int Ay, wgMode Amode): WgBackground(Ax, Ay, Amode)
 		{
 			ads[i].instance = files[i];
 			ads[i].controller = new AdsText(files[i], rectClient.left, rectClient.right, rectClient.top,
-	  								rectClient.bottom, rectClient.width, rectClient.height);
+									  rectClient.bottom-30, rectClient.width, rectClient.height);
+			updateTimeArray[i] = ads[i].controller->getRotation();
 			i++;
 		}
 		// else if ... AdsImage ...
 	}
+
+	updateTime = updateTimeArray[0]; // <<<- initialization updateTime
 
 	curAds = 0;
 	printf( "%s\tWgMulAds widget objects is created\n", strNow() );
@@ -159,11 +163,14 @@ void WgMulAds::render()
 	cout << "current Ads: " << ads[curAds].controller->getCaption().c_str() << endl;
 	if (ads[curAds].controller)
 	{
+		updateTime = updateTimeArray[curAds];
+
 		renderHeader(ads[curAds].controller->getCaption().c_str());
 		ads[curAds].controller->render();
 		if(curAds==0) activeAds = adsCount;
 		else activeAds = curAds;
-		pageIndicator(rectClient.width, rectClient.height, activeAds, adsCount, circleSize);
+		printf("\twidth: %i  left: %i  height: %i  bottom: %i\n", rectClient.width, rectClient.left, rectClient.height, rectClient.bottom);
+		pageIndicator(rectClient.width + (rectClient.left*2), rectClient.height + (rectClient.bottom*2), activeAds, adsCount, circleSize);
 	}
 }
 
@@ -182,7 +189,12 @@ bool WgMulAds::update()
 }
 
 void WgMulAds::pageIndicator(int width, int height, int active, int circleCount, int diameter){
-	
+	/* test */
+	//Start(width, height);
+	//Fill(0, 0, 0, .2);
+	//Rect(rx, ry, rw, rh);
+	/* test - end **/
+
 	int cirleBorder = diameter/8;
 
 	int verticalSideOffset = (int)(round((float)diameter / 4)),
@@ -195,7 +207,7 @@ void WgMulAds::pageIndicator(int width, int height, int active, int circleCount,
 
 	Fill(40, 40, 40, 1);
 
-	rectY = height / 4;
+	rectY = height / 10;
 	Roundrect(rectX, rectY, rectWidth, rectHeight, rectHeight, rectHeight);
 
 	for (int i = 0; i < circleCount; i++)

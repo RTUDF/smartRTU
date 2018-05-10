@@ -52,9 +52,10 @@ private:
     bool checkJsonFile(string str);
     void pageIndicator(int width, int height, int active, int circleCount, int diameter);
 
+    int updateTimeArray[MAX_ADS]; // <<<- updateTime for each ads
     int activeAds;
-    int circleSize = 30;
-    AdsInfo ads[MAX_ADS];
+    int circleSize = 20;
+    AdsInfo ads[MAX_ADS];  // <<<- ads declaration
     int adsCount;
     int curAds;     // curAds = &ads[++idAd]; curAds->controller->render()      // int -> Ads* //
     //int curAds; // ads[curAds].controller->render()  curAds = curAds->next
